@@ -1,0 +1,7 @@
+path: D:\Own work\ALPR\dataset  # dataset root dir
+train: dataset\train\images  # train images (relative to 'path')
+val: dataset\train\images  # val images (relative to 'path')
+
+# Classes
+names:
+  0: license
