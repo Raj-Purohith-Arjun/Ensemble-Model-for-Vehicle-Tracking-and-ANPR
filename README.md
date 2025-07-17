@@ -90,10 +90,10 @@ python app.py
 
 ## 📺 Output
 
-- ** Bounding boxes around vehicles**
+-**Bounding boxes around vehicles**
 
--** Tracked vehicle IDs across video frames**
+-**Tracked vehicle IDs across video frames**
 
--** Extracted license plate text overlaid on the video**
+-**Extracted license plate text overlaid on the video**
 
--** Web interface for input selection and output display**
+-**Web interface for input selection and output display**
