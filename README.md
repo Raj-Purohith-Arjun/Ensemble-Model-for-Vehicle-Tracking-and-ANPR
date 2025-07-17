@@ -84,7 +84,8 @@ The ensemble architecture significantly reduces false positives and improves OCR
 ```bash
 pip install -r requirements.txt
 
-python app.py ```
+python app.py
+```bash
 
 ## 📺 Output
 
