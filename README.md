@@ -2,6 +2,7 @@
 
 This project presents a cutting-edge Automatic Number Plate Recognition (ANPR) system designed for real-time vehicle tracking. It integrates YOLOv8, YOLOv5, EasyOCR, DeepSORT, and a custom License Plate Detector into an ensemble-based architecture that enhances detection accuracy and tracking reliability. Built with a Flask-based web interface, the system processes both live and pre-recorded video feeds to detect, track, and recognize license plates in real-world traffic conditions.
 
+LINK: [https://link.springer.com/chapter/10.1007/978-3-031-82383-1_6]
 ---
 
 ## 🎯 Objective
