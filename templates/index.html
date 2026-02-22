@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Tracking & ANPR System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #f5f5f5;
+        }
+        h1 { color: #333; }
+        .upload-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        input[type="file"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover { background-color: #45a049; }
+        .result { margin-top: 20px; }
+        .result video { width: 100%; border-radius: 4px; }
+        .flash { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .flash.error { background-color: #ffdddd; color: #cc0000; }
+        .flash.success { background-color: #ddffdd; color: #006600; }
+    </style>
+</head>
+<body>
+    <h1>🚗 Vehicle Tracking & ANPR System</h1>
+    <p>Upload a video to detect and track vehicles with automatic license plate recognition.</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="upload-form">
+        <form method="POST" action="/process" enctype="multipart/form-data">
+            <label><strong>Upload Video:</strong></label>
+            <input type="file" name="video" accept="video/*" required>
+            <button type="submit">Process Video</button>
+        </form>
+    </div>
+
+    {% if output_video %}
+    <div class="result">
+        <h2>Processed Output</h2>
+        <video controls>
+            <source src="{{ output_video }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    {% endif %}
+</body>
+</html>

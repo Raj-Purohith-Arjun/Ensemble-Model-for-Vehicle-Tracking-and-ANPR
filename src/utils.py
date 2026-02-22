@@ -94,6 +94,7 @@ def format_license(text):
         str: Formatted license plate text.
     """
     license_plate_ = ''
+    # License plate format: XX00XXX (positions 0-1 are letters, 2-3 are digits, 4-6 are letters)
     mapping = {0: dict_int_to_char, 1: dict_int_to_char, 4: dict_int_to_char, 5: dict_int_to_char, 6: dict_int_to_char,
                2: dict_char_to_int, 3: dict_char_to_int}
     for j in [0, 1, 2, 3, 4, 5, 6]:
@@ -115,7 +116,6 @@ def read_license_plate(license_plate_crop):
     Returns:
         tuple: Tuple containing the formatted license plate text and its confidence score.
     """
-
     detections = reader.readtext(license_plate_crop)
 
     for detection in detections:

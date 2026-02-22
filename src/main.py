@@ -1,9 +1,14 @@
-from ultralytics import YOLO
+import os
+import sys
+import numpy as np
 import cv2
 
-import util
-from sort.sort import *
-from util import get_car, read_license_plate, write_csv
+# Allow running as a standalone script from repo root
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from ultralytics import YOLO
+from sort.sort import Sort
+from src.utils import get_car, read_license_plate, write_csv
 
 
 results = {}
@@ -22,7 +27,7 @@ vehicles = [2, 3, 5, 7]
 # read frames
 frame_nmr = -1
 ret = True
-while ret and frame_nmr < 10:
+while ret:
     frame_nmr += 1
     ret, frame = cap.read()
     if ret:
@@ -66,4 +71,4 @@ while ret and frame_nmr < 10:
                                                                     'text_score': license_plate_text_score}}
 
 # write results
-write_csv(results, './test.csv')
+write_csv(results, './data/test.csv')
